@@ -1,11 +1,12 @@
-// useState: tic tac toe
+ // useState: tic tac toe
 // http://localhost:3000/isolated/exercise/04.js
 
 import * as React from 'react'
+ import {useLocalStorageState} from "../utils";
 
 function Board() {
     const initialSquares =   Array(9).fill(null)
-    const [squares, setSquares] = React.useState(initialSquares)
+    const [squares, setSquares] = useLocalStorageState("squares",initialSquares )
 
     const nextValue = calculateNextValue(squares)
     const winner = calculateWinner(squares)
